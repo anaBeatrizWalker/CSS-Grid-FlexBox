@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Grid #03</title>
+    <link rel="stylesheet" href="grid3.css">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        /*Definindo um nome como valor da propriedade grid-area*/
+        header {
+            grid-area: cabecalho;
+        }
+
+        nav {
+            grid-area: navegacao;
+        }
+
+        main {
+            grid-area: conteudo;
+        }
+
+        footer {
+            grid-area: rodape;
+        }
+
+        body {
+            display: grid;
+            min-height: 100vh;
+            grid-template-columns: 300px 1fr; /*1º coluna com 300px e a 2º com o resto do espaço da tela*/
+            grid-template-rows: 100px 1fr 100px; /*1º e última linha com 100px, meio com o resto do espaço*/
+            grid-template-areas: /*organizando os elementos na tela*/
+                'cabecalho cabecalho' /*1º e 2º coluna*/
+                'navegacao conteudo'
+                'rodape rodape';
+        }
+
+        /*Responsividade para tela de 700px*/
+        @media(max-width: 700px) {
+            body {
+                grid-template-columns: 1fr; /*uma única coluna*/
+                grid-template-rows: 80px 1fr 100px;
+                grid-template-areas: 
+                    'navegacao' 
+                    'conteudo' 
+                    'rodape';
+            }
+
+            header { display: none; }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="tag">Conteúdo</main>
+    <header class="tag">Cabeçalho</header>
+    <footer class="tag">Rodapé</footer>
+    <nav class="tag">Navegação</nav>
+
+    <script src="grid3.js"></script>
+</body>
+
+</html>
