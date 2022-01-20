@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Flexbox #03</title>
+    <style>
+        div {
+            border: solid 5px dodgerblue;
+            font-size: 40px;
+        }
+
+        .flex-container div {
+            box-sizing: border-box;
+        }
+
+        .flex-container {
+            display: flex;
+        }
+
+        .flex-container div {
+            flex-basis: 100px; /*dimensão do elemento respeitando o sentido main axis*/
+            width: 200px; /*flex-basis é mais forte*/
+        }
+
+        .flex-container div:nth-child(4) {
+            /*propriedades de atalho*/
+            flex: 3 6 100px;/*define na ordem o grow, shrink, basis*/
+        }
+
+        .flex-container {
+            width: 300px; /*div 4 fica menor que as outras*/
+            width: 600px; /*div 4 fica maior que as outras*/
+        }
+    </style>
+</head>
+
+<body>
+    <div class="flex-container">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+    </div>
+</body>
+
+</html>
